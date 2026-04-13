@@ -1,0 +1,80 @@
+---
+import { hero, images } from "../../data/site";
+---
+
+<section class="pt-24 lg:pt-28 pb-12 lg:pb-0 bg-cream" id="inicio">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end">
+      <!-- Text -->
+      <div class="pb-8 lg:pb-16">
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-charcoal leading-[1.1] mb-6">
+          {hero.headline} 🦷
+        </h1>
+
+        <p class="text-muted text-base lg:text-lg leading-relaxed max-w-md mb-8">
+          {hero.subtext}
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-10">
+          <button
+            data-booking
+            class="inline-flex items-center gap-2 bg-salmon text-white font-semibold rounded-full px-7 py-3.5 text-sm hover:bg-salmon-dark shadow-lg shadow-salmon/20 transition-all cursor-pointer"
+          >
+            🦷 {hero.cta.primary}
+          </button>
+          <a
+            href="#servicios"
+            class="inline-flex items-center gap-2 border-2 border-charcoal/15 text-charcoal font-semibold rounded-full px-7 py-3.5 text-sm hover:bg-charcoal hover:text-white transition-all"
+          >
+            {hero.cta.secondary}
+          </a>
+        </div>
+
+        <!-- Feature pills -->
+        <div class="flex flex-col sm:flex-row gap-4 border-t border-charcoal/10 pt-6">
+          {hero.features.map((f) => (
+            <div class="flex-1">
+              <span class="block text-sm font-semibold text-charcoal">{f.label}</span>
+              <span class="text-xs text-muted">{f.desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Hero image + stats -->
+      <div class="relative">
+        <!-- Image -->
+        <div class="relative rounded-t-3xl lg:rounded-t-4xl overflow-hidden aspect-[3/4] bg-salmon-light">
+          <img
+            src={images.hero}
+            alt="Dra. Agatha James sonriendo"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+          <!-- Happy smiles badge -->
+          <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2 shadow-lg">
+            <div class="flex -space-x-2">
+              <div class="w-7 h-7 rounded-full bg-salmon-light border-2 border-white"></div>
+              <div class="w-7 h-7 rounded-full bg-salmon border-2 border-white"></div>
+              <div class="w-7 h-7 rounded-full bg-salmon-dark border-2 border-white"></div>
+            </div>
+            <span class="text-xs font-semibold text-charcoal">Pacientes felices 💛</span>
+          </div>
+        </div>
+
+        <!-- Stats grid below image -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 bg-white rounded-b-3xl lg:rounded-b-4xl border border-charcoal/5 border-t-0">
+          {hero.stats.map((stat, i) => (
+            <div class:list={[
+              "text-center py-5 px-3",
+              i < hero.stats.length - 1 && "border-r border-charcoal/5",
+            ]}>
+              <span class="block text-xl sm:text-2xl font-bold text-charcoal">{stat.value}</span>
+              <span class="text-[10px] uppercase tracking-wider text-muted font-medium">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

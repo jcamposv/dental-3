@@ -1,0 +1,40 @@
+---
+import { navigation, siteConfig } from "../../data/site";
+import MobileMenu from "./MobileMenu";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-lg border-b border-charcoal/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 shrink-0">
+        <span class="text-xl">🦷</span>
+        <span class="font-serif text-charcoal text-xl italic">
+          {siteConfig.name}
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+        {
+          navigation.map((item) => (
+            <a href={item.href} class="text-sm font-medium text-muted hover:text-charcoal transition-colors">
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- Desktop CTA -->
+      <button
+        data-booking
+        class="hidden lg:inline-flex items-center gap-2 bg-salmon text-white font-semibold rounded-full px-6 py-2.5 text-sm hover:bg-salmon-dark transition-colors cursor-pointer"
+      >
+        Agenda tu cita · gratis
+        <span>🦷</span>
+      </button>
+
+      <MobileMenu client:load />
+    </div>
+  </div>
+</header>

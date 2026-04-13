@@ -1,0 +1,64 @@
+---
+import { siteConfig, footer } from "../../data/site";
+---
+
+<footer class="bg-white border-t border-charcoal/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <!-- Brand -->
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xl">🦷</span>
+          <span class="font-serif text-charcoal text-xl italic">{siteConfig.name}</span>
+        </div>
+        <p class="text-sm text-muted leading-relaxed max-w-xs mb-4">
+          Tu dentista de confianza, especializada en odontología estética y cosmética.
+        </p>
+        <p class="text-sm text-muted">{footer.contact.email}</p>
+        <p class="text-sm text-muted">{footer.contact.phone}</p>
+        <p class="text-sm text-muted mt-1">{footer.contact.address}</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="lg:col-span-3">
+        <h3 class="font-serif text-lg text-charcoal italic mb-4">
+          ¿Lista para salir del dolor?
+        </h3>
+        <button
+          data-booking
+          class="inline-flex items-center gap-2 bg-salmon text-white font-semibold rounded-full px-6 py-3 text-sm hover:bg-salmon-dark transition-colors cursor-pointer"
+        >
+          🦷 Agenda tu cita
+        </button>
+      </div>
+
+      <!-- Services -->
+      <div class="lg:col-span-2">
+        <h4 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-4">Servicios</h4>
+        <ul class="space-y-2">
+          {footer.services.map((s) => (
+            <li><a href="#servicios" class="text-sm text-muted hover:text-salmon-dark transition-colors">{s}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="lg:col-span-3">
+        <h4 class="text-sm font-semibold text-charcoal uppercase tracking-wider mb-4">Social</h4>
+        <ul class="space-y-2">
+          {footer.socials.map((s) => (
+            <li><a href={s.href} class="text-sm text-muted hover:text-salmon-dark transition-colors">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-charcoal/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-muted text-sm">&copy; {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.</p>
+      <div class="flex gap-6">
+        <a href="#" class="text-muted hover:text-charcoal transition-colors text-sm">Privacidad</a>
+        <a href="#" class="text-muted hover:text-charcoal transition-colors text-sm">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>

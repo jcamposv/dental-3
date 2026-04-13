@@ -1,0 +1,71 @@
+---
+import { education, images } from "../../data/site";
+---
+
+<section class="py-20 lg:py-28 bg-salmon-lighter" id="educacion">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Image + quote -->
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden aspect-[3/4] bg-salmon-light">
+          <img
+            src={images.education}
+            alt="Dra. Agatha James en formación profesional"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <!-- Quote overlay -->
+        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
+          <p class="text-sm text-charcoal italic leading-relaxed">
+            "{education.quote}"
+          </p>
+        </div>
+      </div>
+
+      <!-- Credentials -->
+      <div>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-charcoal leading-tight mb-10">
+          {education.heading}
+        </h2>
+
+        <!-- Diplomas -->
+        <div class="mb-8">
+          <span class="text-salmon-dark font-serif italic text-lg">{education.diplomas.label}</span>
+          <ul class="mt-3 space-y-2">
+            {education.diplomas.items.map((item) => (
+              <li class="text-sm text-muted leading-relaxed pl-4 border-l-2 border-salmon/30">{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Certificates -->
+        <div class="mb-8">
+          <span class="text-salmon-dark font-serif italic text-lg">{education.certificates.label}</span>
+          <ul class="mt-3 space-y-2">
+            {education.certificates.items.map((item) => (
+              <li class="text-sm text-muted leading-relaxed pl-4 border-l-2 border-salmon/30">{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Practice -->
+        <div class="mb-8">
+          <span class="text-salmon-dark font-serif italic text-lg">{education.practice.label}</span>
+          <ul class="mt-3 space-y-2">
+            {education.practice.items.map((item) => (
+              <li class="text-sm text-muted leading-relaxed pl-4 border-l-2 border-salmon/30">{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <button
+          data-booking
+          class="inline-flex items-center gap-2 bg-salmon text-white font-semibold rounded-full px-7 py-3.5 text-sm hover:bg-salmon-dark transition-colors cursor-pointer"
+        >
+          🦷 Agenda tu cita · gratis
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
